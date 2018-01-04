@@ -25,12 +25,14 @@ namespace Guesser
             if (args.Length != 2)
             {
                 Console.WriteLine("Usage: Guesser <guess_db> <password_db>");
+                return;
             }
 
             // Check files exist.
             if (!File.Exists(args[0]) || !File.Exists(args[1]))
             {
                 Console.WriteLine("Could not read one of the files specified.");
+                return;
             }
 
             // Read guess file and deduplicate.
