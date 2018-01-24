@@ -15,7 +15,6 @@ namespace Guesser
         {
             return File.ReadAllText(filename)
                 .Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
-                .Select(x => x.Trim())
                 .ToArray();
         }
 
@@ -48,7 +47,7 @@ namespace Guesser
                 var guessMatchCount = db.Count(x => x == guess);
                 if (guessMatchCount > 0)
                 {
-                    Console.WriteLine("Guessed " + guess + " successfully!");
+                    Console.WriteLine($"Guessed {guess} successfully ({guessMatchCount})!");
                 }
                 totalMatchCount += guessMatchCount;
             }
