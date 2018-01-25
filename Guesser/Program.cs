@@ -68,7 +68,7 @@ namespace Guesser
                     .Append(cumulative[i])
                     .AppendLine();
             }
-            File.WriteAllText("graph.txt", sb.ToString());
+            File.WriteAllText("graph.csv", sb.ToString());
         }
     }
 }
