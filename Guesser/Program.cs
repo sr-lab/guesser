@@ -63,7 +63,7 @@ namespace Guesser
             var sb = new StringBuilder();
             for (var i = 0; i < cumulative.Count; i++)
             {
-                sb.Append(i)
+                sb.Append(i + 1)
                     .Append(',')
                     .Append(cumulative[i])
                     .AppendLine();
