@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Guesser
 {
@@ -42,6 +44,7 @@ namespace Guesser
 
             // Guess passwords, keep track of total.
             var totalMatchCount = 0;
+            var cumulative = new List<int>();
             foreach (var guess in guesses)
             {
                 var guessMatchCount = db.Count(x => x == guess);
@@ -49,11 +52,23 @@ namespace Guesser
                 {
                     Console.WriteLine($"Guessed {guess} successfully ({guessMatchCount})!");
                 }
+                cumulative.Add(cumulative.Count == 0 ? guessMatchCount : cumulative.Last() + guessMatchCount);
                 totalMatchCount += guessMatchCount;
             }
 
             // Relay result to user.
             Console.WriteLine($"{totalMatchCount}/{db.Count()}");
+
+            // Write cumulative file.
+            var sb = new StringBuilder();
+            for (var i = 0; i < cumulative.Count; i++)
+            {
+                sb.Append(i)
+                    .Append(',')
+                    .Append(cumulative[i])
+                    .AppendLine();
+            }
+            File.WriteAllText("graph.txt", sb.ToString());
         }
     }
 }
