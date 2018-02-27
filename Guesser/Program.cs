@@ -52,8 +52,8 @@ namespace Guesser
                 {
                     Console.WriteLine($"Guessed {guess} successfully ({guessMatchCount})!");
                 }
-                cumulative.Add(cumulative.Count == 0 ? guessMatchCount : cumulative.Last() + guessMatchCount);
                 totalMatchCount += guessMatchCount;
+                cumulative.Add(totalMatchCount);
             }
 
             // Relay result to user.
