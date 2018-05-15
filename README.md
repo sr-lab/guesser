@@ -29,4 +29,6 @@ A file called `graph.csv` will be placed into the current directory too. This wi
 ...
 ```
 
-The first column is the number of guesses made, the second is the cumulative number of correct guesses. In the example above, guess 3 was a really good guess.
+The first column is the number of guesses made, the second is the cumulative number of correct guesses. In the example above, guess 3 was a really good guess. Using this output, we can create some cool visualisations. For example, the number of correctly guessed PINS in a large data set when guessing randomly vs. guessing optimally.
+
+![Correctly guessed PINs by attack.](assets/pins_rand_vs_optimal.svg)
